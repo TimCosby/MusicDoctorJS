@@ -1,2 +1,2 @@
-# MusicDoctorJS
-A javascript ver of MusicDoctor
+# musicdoctor
+A Javascript Program for recommending music

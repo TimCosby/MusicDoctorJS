@@ -1,0 +1,100 @@
+<script>
+
+function is_in(obj, arr) {
+	for(i=0; i < arr.length; i++){
+		
+		if(obj===arr[i]){
+			return true
+		}
+	}
+	return false
+}
+
+
+function get_points(database, source) {
+
+	var point_distri = {}
+	var data_keys = Object.keys(database)
+	var source_keys = Object.keys(source)
+	
+	for(i=0; i < data_keys.length; i++){
+		if(is_in(data_keys[i], source_keys)){
+			var artist_dat = database[data_keys[i]];
+			var points = 0;
+		
+			for(j=0; j < source_keys.length; j++){
+				var source_dat = database[source_keys[j]];
+			
+				for(k=1; k < artist_dat.length; k++){
+					points += abs(artist_dat[k] - source_dat[k]);
+				}
+			}
+			
+			try{
+				point_distri[points/source.length].push(data_keys[i]);
+			}
+			catch(err){
+				point_distri[points/source.length] = [data_keys[i]];
+			}
+		}
+	}
+	
+	return point_distri
+
+}
+
+var database = {'HI': ['waht', 'huh']};
+var favoured_artists = [];
+
+</script>
+
+<header><center>Welcome to Music Doctor</center></header>
+<input type='text' name='artist' id='artist'>
+<button onclick='get_input(document.getElementById("artist"), favoured_artists, database, "add")'>ADD</button>
+<button onclick='get_input(document.getElementById("artist"), favoured_artists, database, "remove")'>REMOVE</button>
+
+<button onclick='get_points(database, document.getElementById("artist"))'>Get Points</button>
+
+
+
+<script>
+function get_input(artist, favoured_artists, database, type){
+
+	if(is_in(artist.value.toUpperCase(), Object.keys(database))){
+		
+		if (type === 'add'){
+			if(is_in(artist.value.toUpperCase(), favoured_artists) === false){
+				favoured_artists.push(artist.value);
+				
+				window.alert('Artist added!');
+				artist.value = '';
+			}
+			else{
+				window.alert('Artist has already been added!');
+			}
+		}
+		
+		else if (type === 'remove'){
+			if(is_in(artist.value.toUpperCase(), favoured_artists)){
+				for(var i=0; i < favoured_artists.length; i++){
+					if(artist.value.toUpperCase() === favoured_artists[i]){
+						favoured_artists.splice(i, 1);
+						
+						window.alert('Artist has been removed!');
+						artist.value = '';
+						break
+					}
+				}
+			}
+			else{
+				window.alert('Artist has not been added!');
+			}
+		}
+		
+		
+	}
+	else{
+		window.alert('Artist not recongnized!');
+	}
+}
+</script>

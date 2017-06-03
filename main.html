@@ -3,9 +3,7 @@
 <button onclick='get_input(document.getElementById("artist"), "add")'>ADD</button>
 <button onclick='get_input(document.getElementById("artist"), "remove")'>REMOVE</button>
 
-<button onclick='get_recommendations()'>Get Points</button>
-
-<button onclick='display()'>Display</button>
+<button onclick='window.alert(JSON.stringify(get_recommendations()))'>Get Recommendations</button>
 
 
 <script>
@@ -102,6 +100,10 @@ function get_average_difference(database, source) { // Compares all the values i
 
 function get_recommendations(limit){ // Get the artists from most to least matching current liked artists
 
+	if (favoured_artists.length == 0){
+		return 'You need to enter an artist first';
+	}
+
     var points = get_average_difference(database, favoured_artists); // Get average difference in points between known and unknown artists
     var sorted_points = Object.keys(points).sort(function(a, b){return a-b}); // Sort from most to least points
 
@@ -127,10 +129,6 @@ function get_recommendations(limit){ // Get the artists from most to least match
     }
 
     return artists_to_display
-}
-
-function display(){ // For testing
-    window.alert(JSON.stringify(get_recommendations()));
 }
 
 </script>

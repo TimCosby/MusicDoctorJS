@@ -96,7 +96,7 @@ select:focus {
   width: 100%;
   height: 20%;
   margin-top: 6vh;
-  display: block;
+  display: none;
   background-color: white;
 }
 

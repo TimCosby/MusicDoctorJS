@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>recomender</title>
+    <link rel="stylesheet" type="text/css" href="stylesheet.css">
+    <link rel="stylesheet" type="text/css" href="grid.css">
+  </head>
+
+
+  <body>
+
+    <main>
+
+      <section id="search">
+
+        <h1>find artist similar to:</h1>
+
+        <form id="form">
+          <input type="search" name="search" id="artist">
+        </form>
+
+        <button onclick='get_input(document.getElementById("artist"), "add")'>ADD</button>
+  			<button onclick='get_input(document.getElementById("artist"), "remove")'>REMOVE</button>
+  			<button onclick='display()'>Get Recommendations</button>
+
+        <button id="advancedButton">advanced</button>
+  	    	<section class="advancedTogglesHidden">
+  	      <p></p>
+
+  	    </section>
+
+      </section>
+
+
+      <section id="results">
+
+  			<p id="result"></p>
+
+  		</section>
+
+    </main>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script type="text/javascript" src="appearResults.js"></script>
+    <script type="text/javascript" src="searcher.js"></script>
+		<script type="text/javascript" src="advancedOptions.js"></script>
+
+  </body>
+
+
+</html>

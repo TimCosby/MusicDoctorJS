@@ -1,42 +1,70 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>recomender</title>
-    <link rel="stylesheet" type="text/css" href="stylesheet.css">
-    <link rel="stylesheet" type="text/css" href="grid.css">
-  </head>
+   <head>
+      <title>recomender</title>
+      <link rel="stylesheet" type="text/css" href="stylesheet.css">
+      <link rel="stylesheet" type="text/css" href="grid.css">
+   </head>
 
 
-  <body>
+   <body>
 
-    <main>
+      <main>
 
-      <section id="search">
+         <section id="search">
 
-        <h1>find artist similar to:</h1>
+            <h1>find artist similar to:</h1>
 
-        <form id="form">
-          <input type="search" name="search" id="artist">
-        </form>
+            <form id="form">
+               <input type="search" name="search" id="artist">
+            </form>
 
-        <button onclick='get_input(document.getElementById("artist"), "add")'>ADD</button>
-  			<button onclick='get_input(document.getElementById("artist"), "remove")'>REMOVE</button>
-  			<button onclick='display()'>Get Recommendations</button>
+            <button onclick='get_input(document.getElementById("artist"), "add")'>ADD</button>
+  
+		 <button onclick='get_input(document.getElementById("artist"), "remove")'>REMOVE</button>
+  			
+            <button onclick='get_recommendations(6)'>Get Recommendations</button>
 
-        <button id="advancedButton">advanced</button>
-  	    	<section class="advancedTogglesHidden">
-  	      <p></p>
+            <button id="advancedButton">advanced</button>
+  	    	
+            <section class="advancedTogglesHidden">
+  	      
+              <p></p>
 
-  	    </section>
+  	      </section>
 
-      </section>
+        </section>
 
 
-      <section id="results">
+        <section id="results">
 
-  			<p id="result"></p>
+  	     <p id="result"></p>
 
-  		</section>
+	     <div class="w3-container">
+              <p id='card1'>Artist1</p>
+           </div>
+
+		<div class="w3-container">
+              <p id='card2'>Artist2</p>
+		</div>
+
+		<div class="w3-container">
+              <p id='card3'>Artist3</p>
+		</div>
+
+		<div class="w3-container">
+              <p id='card4'>Artist4</p>
+		</div>
+
+		<div class="w3-container">
+              <p id='card5'>Artist5</p>
+		</div>
+
+		<div class="w3-container">
+              <p id='card6'>Artist6</p>
+           </div>
+
+  	  </section>
 
     </main>
 
